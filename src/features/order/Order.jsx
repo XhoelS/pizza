@@ -8,7 +8,7 @@ import {
 } from "../../utils/helpers";
 import OrderItem from "./OrderItem";
 import { useEffect } from "react";
-import UpdateOrder from "./UpdateOrder";
+// import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
@@ -25,8 +25,8 @@ function Order() {
   const {
     id,
     status,
-    priority,
-    priorityPrice,
+    // priority,
+    // priorityPrice,
     orderPrice,
     estimatedDelivery,
     cart,
@@ -38,11 +38,11 @@ function Order() {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-xl font-semibold">Order #{id} status</h2>
         <div className="space-x-2">
-          {priority && (
+          {/* {priority && (
             <span className="bg-red-500 rounded-full py-1 px-3 font-semibold uppercase text-red-50 tracking-wide">
               Priority
             </span>
-          )}
+          )} */}
           <span className="bg-green-500 rounded-full py-1 px-3 font-semibold uppercase text-green-50 tracking-wide">
             {status} order
           </span>
@@ -76,16 +76,16 @@ function Order() {
         <p className="text-sm font-medium text=stone-600">
           Price pizza: {formatCurrency(orderPrice)}
         </p>
-        {priority && (
+        {/* {priority && (
           <p className="text-sm font-medium text=stone-600">
             Price priority: {formatCurrency(priorityPrice)}
           </p>
-        )}
+        )} */}
         <p className="font-bold">
-          To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
+          To pay on delivery: {formatCurrency(orderPrice)}
         </p>
       </div>
-      {!priority && <UpdateOrder order={order} />}
+      {/* {!priority && <UpdateOrder order={order} />} */}
     </div>
   );
 }

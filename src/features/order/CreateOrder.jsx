@@ -13,7 +13,7 @@ const isValidPhone = (str) =>
     str
   );
 function CreateOrder() {
-  const [withPriority, setWithPriority] = useState(false);
+  // const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
@@ -32,8 +32,8 @@ function CreateOrder() {
   // const cart = fakeCart;
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
-  const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
-  const totalPrice = totalCartPrice + priorityPrice;
+  // const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
+  const totalPrice = totalCartPrice;
 
   return (
     <div className="px-4 py-6">
@@ -97,8 +97,8 @@ function CreateOrder() {
           )}
         </div>
         <br />
-        <div className="mb-12 flex gap-5 items-center">
-          <input
+        {/* <div className="mb-12 flex gap-5 items-center"> */}
+        {/* <input
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 
             focus:ring-offset-2"
             type="checkbox"
@@ -110,7 +110,7 @@ function CreateOrder() {
           <label htmlFor="priority" className="font-medium">
             Want to yo give your order priority?
           </label>
-        </div>
+        </div> */}
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
@@ -139,7 +139,7 @@ export async function action({ request }) {
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
-    priority: data.priority === "true",
+    // priority: data.priority === "true",
   };
   const errors = {};
   if (!isValidPhone(order.phone))
