@@ -151,7 +151,7 @@ export async function action({ request }) {
   const newOrder = await createOrder(order);
 
   //do not overuse
-  store.dispatch(clearCart());
+  // store.dispatch(clearCart());
 
   return redirect(`/order/${newOrder.id}`);
 }
