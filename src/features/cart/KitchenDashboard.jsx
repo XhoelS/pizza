@@ -10,10 +10,10 @@ function KitchenDashboard() {
   console.log(cart);
   if (!cart || cart.length === 0)
     return (
-      <div>
-        <p className="text-xl text-red-500 p-48 ">No order yet</p>{" "}
-        <span>
-          <LinkButton to="/menu">&larr; Back to menu</LinkButton>
+      <div className="flex justify-center items-center mt-40 flex-col">
+        <p className="text-l text-red-500  ">No order yet</p>
+        <span className="mt-10">
+          <LinkButton to="/menu"> &larr;Back to menu</LinkButton>
         </span>
       </div>
     );
